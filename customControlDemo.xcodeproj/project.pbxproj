@@ -14,6 +14,7 @@
 		52F2B9C61A41B79700F29D9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F2B9C51A41B79700F29D9C /* Images.xcassets */; };
 		52F2B9C91A41B79700F29D9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F2B9C71A41B79700F29D9C /* LaunchScreen.xib */; };
 		52F2B9D51A41B79700F29D9C /* customControlDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F2B9D41A41B79700F29D9C /* customControlDemoTests.m */; };
+		52F2B9E01A41B7B300F29D9C /* NBRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F2B9DF1A41B7B300F29D9C /* NBRateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		52F2B9CE1A41B79700F29D9C /* customControlDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = customControlDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F2B9D31A41B79700F29D9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F2B9D41A41B79700F29D9C /* customControlDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customControlDemoTests.m; sourceTree = "<group>"; };
+		52F2B9DE1A41B7B300F29D9C /* NBRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBRateView.h; sourceTree = "<group>"; };
+		52F2B9DF1A41B7B300F29D9C /* NBRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBRateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				52F2B9BD1A41B79700F29D9C /* AppDelegate.m */,
 				52F2B9BF1A41B79700F29D9C /* ViewController.h */,
 				52F2B9C01A41B79700F29D9C /* ViewController.m */,
+				52F2B9DE1A41B7B300F29D9C /* NBRateView.h */,
+				52F2B9DF1A41B7B300F29D9C /* NBRateView.m */,
 				52F2B9C21A41B79700F29D9C /* Main.storyboard */,
 				52F2B9C51A41B79700F29D9C /* Images.xcassets */,
 				52F2B9C71A41B79700F29D9C /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				52F2B9C11A41B79700F29D9C /* ViewController.m in Sources */,
 				52F2B9BE1A41B79700F29D9C /* AppDelegate.m in Sources */,
+				52F2B9E01A41B7B300F29D9C /* NBRateView.m in Sources */,
 				52F2B9BB1A41B79700F29D9C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
