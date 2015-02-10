@@ -17,7 +17,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable NSUInteger maxCount;
 @property (nonatomic) IBInspectable NSUInteger eleWidth;
 @property (nonatomic) IBInspectable BOOL allowEdit;
-@property (nonatomic, assign) NSUInteger rateScore;
+@property (nonatomic, assign) CGFloat rateScore;
 
 - (void)setTarget:(id)target forValueChangeAction:(SEL)action;
 

@@ -62,23 +62,43 @@ CGFloat const NBRINSET = 2;
     CGContextTranslateCTM(ctx, 0.0, rect.size.height);
     CGContextScaleCTM(ctx, 1.0, -1.0);
     //评分元素大小
-    CGFloat elementWidth = _eleWidth;
-    CGFloat elementHeight = _eleWidth;
+    CGFloat eleWidth = _eleWidth;
+    CGFloat eleHeight = _eleWidth;
     if (!_eleWidth) {
-        elementWidth = _enableImage.size.width;
-        elementHeight = _enableImage.size.height;
+        eleWidth = _enableImage.size.width;
+        eleHeight = _enableImage.size.height;
     }
     for (int i = 0; i != _maxCount; ++i) {
-        CGRect imgFrame = CGRectMake(NBRINSET + (NBRINSET + elementWidth) * i, NBRINSET, elementWidth, elementHeight);
-        CGImageRef paintImg = i < _rateScore ? _enableImage.CGImage : _disableImage.CGImage;
-        CGContextDrawImage(ctx, imgFrame, paintImg);
+        CGRect imgFrame = CGRectMake(NBRINSET + (NBRINSET + eleWidth) * i, NBRINSET, eleWidth, eleHeight);
+        CGFloat score = _rateScore - i;
+        if (score >= 1) {
+            //全亮星星
+            CGContextDrawImage(ctx, imgFrame, _enableImage.CGImage);
+        } else if (score > 0) {
+            //亮部
+            //这个cgWidth，貌似跟分辨率有关，高清屏幕下是eleWidth的2倍3倍
+            CGFloat cgWidth = CGImageGetWidth(_enableImage.CGImage);
+            CGFloat cgHeight = CGImageGetHeight(_enableImage.CGImage);
+            CGRect lightFrame = CGRectMake(NBRINSET + (NBRINSET + eleWidth) * i, NBRINSET, eleWidth * score, eleHeight);
+            CGRect imgRect = CGRectMake(0, 0, cgWidth * score, cgHeight);
+            CGImageRef lightImg = CGImageCreateWithImageInRect(_enableImage.CGImage, imgRect);
+            CGContextDrawImage(ctx, lightFrame, lightImg);
+            //暗部
+            CGRect darkFrame = CGRectMake(NBRINSET + (NBRINSET + eleWidth) * i + eleWidth * score, NBRINSET, eleWidth * (1 - score), eleHeight);
+            imgRect = CGRectMake(cgWidth * score, 0, cgWidth * (1 - score), cgHeight);
+            CGImageRef darkImg = CGImageCreateWithImageInRect(_disableImage.CGImage, imgRect);
+            CGContextDrawImage(ctx, darkFrame, darkImg);
+        } else {
+            //全暗星星
+            CGContextDrawImage(ctx, imgFrame, _disableImage.CGImage);
+        }
     }
 }
 
 #endif
 
 
-- (void)setRateScore:(NSUInteger)rateScore
+- (void)setRateScore:(CGFloat)rateScore
 {
     _rateScore = rateScore;
 #if SimpleCode
@@ -111,21 +131,30 @@ CGFloat const NBRINSET = 2;
     }
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (!_allowEdit) {
+        return;
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (!_allowEdit) {
         return;
     }
     CGPoint pt = [[touches anyObject] locationInView:self];
-    CGFloat eleWidth = _eleWidth;
-    if (!_eleWidth) {
-        eleWidth = _enableImage.size.width;
+    CGFloat elementWidth = _eleWidth;
+    if (!elementWidth) {
+        elementWidth = _enableImage.size.width;
     }
-    CGFloat score = (pt.x - NBRINSET) / (eleWidth + NBRINSET);
-    if (score > 0) {
-        self.rateScore = score + 1;
-    } else {
-        self.rateScore = 0;
+    self.rateScore = (pt.x - NBRINSET) / (elementWidth + NBRINSET);
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (!_allowEdit) {
+        return;
     }
     if (_target) {
         IMP imp = [_target methodForSelector:_selector];
