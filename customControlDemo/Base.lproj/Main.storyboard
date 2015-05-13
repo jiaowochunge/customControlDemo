@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,50 +17,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caD-yo-ABu" customClass="NBRateView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ab4-yF-fb0" customClass="RatingView" customModule="customControlDemo">
+                                <rect key="frame" x="56" y="75" width="116" height="16"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maxCount">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="eleWidth">
                                         <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxCount">
+                                        <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="image" keyPath="enableImage" value="star2"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="disableImage" value="star1"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowEdit" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="rateViewValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="GQH-2K-nLj"/>
+                                </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr3-u8-Dxr">
+                                <rect key="frame" x="56" y="121" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFF-Nr-B0b" customClass="NBRateView">
+                                <rect key="frame" x="56" y="253" width="97" height="16"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="enableImage" value="star2"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="disableImage" value="star1"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="eleWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowEdit" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxCount">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="objc写的，继承自UIView，无法编辑" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-gJ-9L2">
+                                <rect key="frame" x="56" y="223" width="227" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swift控件，继承自UIControl,可编辑。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVu-43-B6U">
+                                <rect key="frame" x="56" y="50" width="236" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="caD-yo-ABu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="50" id="OBF-xH-BQ7"/>
-                            <constraint firstItem="caD-yo-ABu" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="50" id="uMI-1d-u9g"/>
+                            <constraint firstItem="Ab4-yF-fb0" firstAttribute="top" secondItem="AVu-43-B6U" secondAttribute="bottom" constant="8" id="9Tl-WD-vjW"/>
+                            <constraint firstItem="ul6-gJ-9L2" firstAttribute="top" secondItem="Dr3-u8-Dxr" secondAttribute="bottom" constant="81" id="DSw-CG-ppi"/>
+                            <constraint firstItem="Ab4-yF-fb0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="40" id="J9z-5R-cB4"/>
+                            <constraint firstItem="Dr3-u8-Dxr" firstAttribute="top" secondItem="Ab4-yF-fb0" secondAttribute="bottom" constant="30" id="RB5-eQ-DaZ"/>
+                            <constraint firstItem="AVu-43-B6U" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="40" id="Udh-P0-ux3"/>
+                            <constraint firstItem="AVu-43-B6U" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="eEo-fr-bsH"/>
+                            <constraint firstItem="VFF-Nr-B0b" firstAttribute="top" secondItem="ul6-gJ-9L2" secondAttribute="bottom" constant="13" id="enj-31-Iud"/>
+                            <constraint firstItem="ul6-gJ-9L2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="40" id="lUS-tG-UfG"/>
+                            <constraint firstItem="Ab4-yF-fb0" firstAttribute="leading" secondItem="Dr3-u8-Dxr" secondAttribute="leading" id="xJV-8d-y63"/>
+                            <constraint firstItem="ul6-gJ-9L2" firstAttribute="leading" secondItem="VFF-Nr-B0b" secondAttribute="leading" id="xp8-hn-OLe"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="caD-yo-ABu"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="OBF-xH-BQ7"/>
-                                <exclude reference="uMI-1d-u9g"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="caD-yo-ABu"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="OBF-xH-BQ7"/>
-                                <include reference="uMI-1d-u9g"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="rateView" destination="Ab4-yF-fb0" id="mcX-8X-fkF"/>
+                        <outlet property="score" destination="Dr3-u8-Dxr" id="0cy-Rp-MFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240" y="325"/>
+            <point key="canvasLocation" x="327" y="351"/>
         </scene>
     </scenes>
     <resources>

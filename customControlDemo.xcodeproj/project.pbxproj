@@ -15,6 +15,7 @@
 		52F2B9C91A41B79700F29D9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F2B9C71A41B79700F29D9C /* LaunchScreen.xib */; };
 		52F2B9D51A41B79700F29D9C /* customControlDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F2B9D41A41B79700F29D9C /* customControlDemoTests.m */; };
 		52F2B9E01A41B7B300F29D9C /* NBRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F2B9DF1A41B7B300F29D9C /* NBRateView.m */; };
+		B0CA1E011B02F7BA00943334 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CA1E001B02F7BA00943334 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		52F2B9D41A41B79700F29D9C /* customControlDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customControlDemoTests.m; sourceTree = "<group>"; };
 		52F2B9DE1A41B7B300F29D9C /* NBRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBRateView.h; sourceTree = "<group>"; };
 		52F2B9DF1A41B7B300F29D9C /* NBRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBRateView.m; sourceTree = "<group>"; };
+		B0CA1DFF1B02F7BA00943334 /* customControlDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "customControlDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		B0CA1E001B02F7BA00943334 /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +93,12 @@
 				52F2B9C01A41B79700F29D9C /* ViewController.m */,
 				52F2B9DE1A41B7B300F29D9C /* NBRateView.h */,
 				52F2B9DF1A41B7B300F29D9C /* NBRateView.m */,
+				B0CA1E001B02F7BA00943334 /* RatingView.swift */,
 				52F2B9C21A41B79700F29D9C /* Main.storyboard */,
 				52F2B9C51A41B79700F29D9C /* Images.xcassets */,
 				52F2B9C71A41B79700F29D9C /* LaunchScreen.xib */,
 				52F2B9B81A41B79700F29D9C /* Supporting Files */,
+				B0CA1DFF1B02F7BA00943334 /* customControlDemo-Bridging-Header.h */,
 			);
 			path = customControlDemo;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				52F2B9C11A41B79700F29D9C /* ViewController.m in Sources */,
 				52F2B9BE1A41B79700F29D9C /* AppDelegate.m in Sources */,
 				52F2B9E01A41B7B300F29D9C /* NBRateView.m in Sources */,
+				B0CA1E011B02F7BA00943334 /* RatingView.swift in Sources */,
 				52F2B9BB1A41B79700F29D9C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,9 +355,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = customControlDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "customControlDemo/customControlDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -359,9 +369,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = customControlDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "customControlDemo/customControlDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -418,6 +431,7 @@
 				52F2B9DA1A41B79700F29D9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52F2B9DB1A41B79700F29D9C /* Build configuration list for PBXNativeTarget "customControlDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +440,7 @@
 				52F2B9DD1A41B79700F29D9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
